@@ -2,12 +2,23 @@
 <html>
 <head>
 	<title>Jisun's Form</title>
+    <style>
+.center {
+
+  margin: auto;
+  width: 70%;
+  padding: 10px;
+/*  position: absolute;*/
+}
+
+</style>
 </head>
 <body style="background-color:lightgray;">
 <h5> > 1 Donation > 2 Confirmation     > Thank You! </h5>
 <h3 style="color: red"> Donor Information </h3>
     <form action="/action_page.php" method="get">
-        <center>
+        <div class="center">
+        <div style="float: left; text-align: right">
         <label for="fname"><b>First name<span style="color: red">*</label>
         <input type="text" id="fname" name="fname" value=""><br>
         <label for="lname"><b>Last name<span style="color: red">*</label>
@@ -66,22 +77,22 @@
         <input type="text" id="email" name="email" value=""><br><br>
         <label for="recurring_donation"><b>Recurring Donation</label>
         <input type="checkbox" id="recurring_donation" name="recurring_donation" value="recurring_donation">
-        <label for="recurring_donation"> I am interested in giving on a regular basis.</label><br>
-        <label for="Credit"> Monthly Credit Card $ </label>
+        <label for="recurring_donation" style="font-weight: 100"> I am interested in giving on a regular basis.</label><br>
+        <label for="Credit" style="font-weight: 100"> Monthly Credit Card $ </label>
             <input type="text" id="Credit" name="Credit" value="">
-        <label for="Credit"> For </label>
-            <input type="text" id="months" name="months" value=""><label for="Credit"> Months </label>
+        <label for="Credit" style="font-weight: 100"> For </label>
+            <input type="text" id="months" name="months" value=""><label for="Credit" style="font-weight: 100"> Months </label>
+            </div></div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         
-        </center>
-        <h3 style="color: red"> Honorarium and Memorial Donation Information </h3>
-        
-        <center>
+        <h3 style="color: red;"> Honorarium and Memorial Donation Information </h3>
+        <div class="center">
+        <div style="float: left; text-align: right;">
         <label for="I would like to make this"><b>I would like to make this </label>
         <input type="radio" id="honor" name="I would like to make this" value="To Honor">
-        <label for="To Honor">To Honor</label><br>
+        <label for="To Honor" style="font-weight: 100">To Honor</label><br>
         <label for="I would like to make this"><b>Donation </label>
         <input type="radio" id="honor" name="I would like to make this" value="In Memory Of">
-        <label for="In Memory Of">In Memory Of</label><br>
+        <label for="In Memory Of" style="font-weight: 100">In Memory Of</label><br>
         
         <label for="name"><b>Name</label>
         <input type="text" id="name" name="name" value=""><br>
@@ -103,30 +114,45 @@
         
         <label for="zip_code"><b>Zip</label>
         <input type="text" id="zip_code" name="zip_code" value=""><br>
-        </center>
+            </div></div><br><br><br><br><br><br><br><br><br>
         <h3 style="color: red"> Additional Information </h3>
-        <p>Please enter your name, company or organization as you would like it to appear in our publications:</p><br>
-        <center><label for="name"><b>Name</label>
+        <p style="font-weight: 100">Please enter your name, company or organization as you would like it to appear in our publications:</p><br>
+        
+        <div class="center">
+        <div style="float: none; text-align: left">
+        <label for="name"><b>Name</label>
         <input type="text" id="name" name="name" value=""><br>
-         </center>
+         
         <input type="checkbox" id="anonumous" name="anonumous" value="anonumous">
-        <label for="anonumous"> I would like my gift to remain anonymous.</label><br>
+        <label for="anonumous" style="font-weight: 100"> I would like my gift to remain anonymous.</label><br>
         <input type="checkbox" id="matching_gift" name="matching_gift" value="matching_gift">
-        <label for="matching_gift"> My employer offers a matching gift program. I will mail the matching gift form.</label><br>
+        <label for="matching_gift" style="font-weight: 100"> My employer offers a matching gift program. I will mail the matching gift form.</label><br>
         <input type="checkbox" id="acknowledging" name="acknowledging" value="acknowledging">
-        <label for="acknowledging"> Please save the cost of acknowledging this gift by not mailing a thank you letter.</label><br><br>
-        <center>
-        <label for="anonumous">Comments</label><br>
+        <label for="acknowledging" style="font-weight: 100"> Please save the cost of acknowledging this gift by not mailing a thank you letter.</label><br><br>
+        
+        <p for="comment" style="float: left; text-align: right">Comments</p>
         <textarea rows="4" cols="50" name="comment" form="usrform"></textarea><br>
+        <h3> How may we contact you? </h3>
         <input type="checkbox" id="anonumous" name="anonumous" value="anonumous">
-        <label for="anonumous">Email.</label><br>
+        <label for="anonumous" style="font-weight: 100">Email.</label><br>
         <input type="checkbox" id="matching_gift" name="matching_gift" value="matching_gift">
-        <label for="matching_gift"> Postal Mail.</label><br>
+        <label for="matching_gift" style="font-weight: 100"> Postal Mail.</label><br>
         <input type="checkbox" id="acknowledging" name="acknowledging" value="acknowledging">
-        <label for="acknowledging"> Telephone.</label><br>
+        <label for="acknowledging" style="font-weight: 100"> Telephone.</label><br>
         <input type="checkbox" id="acknowledging" name="acknowledging" value="acknowledging">
-        <label for="acknowledging"> Fax.</label><br><br>
-        </center>
-    </form>
+            <label for="acknowledging" style="font-weight: 100"> Fax.</label><br>
+            <p style="font-weight: 100" style="font-weight: 100"> I would like to receive newsletters and information about special events by: <p>
+        <input type="checkbox" id="anonumous" name="anonumous" value="anonumous">
+        <label for="anonumous" style="font-weight: 100">Email.</label><br>
+        <input type="checkbox" id="matching_gift" name="matching_gift" value="matching_gift">
+        <label for="matching_gift" style="font-weight: 100"> Postal Mail.</label><br></div></div>
+        <br style="clear: both"><div class ="center">
+            <input type="checkbox" id="8" name="8" value="8"> <label for="8" style="font-weight: normal">I would like information about volunteering with the </label><br>
+                
+                
+                    <input type="reset" value="reset">
+                    <input type="submit" value="Continue">
+                </div>
+            </form>
 </body>
 </html>
