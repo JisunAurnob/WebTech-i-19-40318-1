@@ -17,7 +17,7 @@ session_start();
     	* <a href="dashboard.php">Dashboard</a><br><br>
     	* <a href="profile.php">View Profile</a><br><br>
     	* <a href=".php">Edit Profile</a><br><br>
-    	* <a href=".php">Change Profile Picture</a><br><br>
+    	* <a href="changeProfilePic.php">Change Profile Picture</a><br><br>
     	* <a href="changePassword.php">Change Password</a><br><br>
     	* <a href="logout.php">Logout</a>
     </div>

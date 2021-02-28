@@ -8,7 +8,6 @@
 session_start();
 	echo "<div>";include 'resources/header.php';echo "</div>";
  ?>
-	<!-- <div><?php include 'resources/header.php';?></div> -->
 	<br><br>
 <h1>Welcome to Jisun's Company</h1>
 <br><br><br><br><br><br>

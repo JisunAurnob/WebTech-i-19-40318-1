@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Profile</title>
+	<title>Profile Picture</title>
 </head>
 <body>
-<?php 
+	<?php 
 session_start();
 	echo "<div>";include 'resources/header.php';echo "</div>";
-
  ?>
-<table style="width:100%; border: 1px solid black;">
+	<table style="width:100%; border: 1px solid black;">
   <tr style="border: 1px solid black;">
     <th style="border: 1px solid black;">
     	Account<hr>
@@ -22,24 +21,17 @@ session_start();
     	* <a href="logout.php">Logout</a>
     </div>
     </th>
-    <th><?php if (isset($_SESSION['username'])) {
-	echo "<fieldset>
-<legend><B>PROFILE</B></legend><div style= 'margin-right: 750px;float: left; text-align: left;color: green;'> Username: ".$_SESSION['username']."<hr>
-	<br>Name: Aurnob, MD. Jisun Abedin<hr>
-	<br>Email: jisunabedin@gmail.com<hr>
-	<br>Gender: Male<hr>
-	<br>Date Of Birth: 3/08/1999<hr>
-	</div>
-	<div style= 'float: right;position: absolute;left:500px; top: 180px;color: green;'>
-	<fieldset>
-<img src='resources/jisun.png' alt='Profile Picture' width='180' height='200'>
+    <th style="border: 1px solid black;">
+
+<form action="resources/upload.php" method="post" enctype="multipart/form-data">
+  <fieldset>
+<legend><B>PROFILE PICTURE</B></legend> <br>
+  <img src="resources/jisun.png" width="180" height="200"><br><br>
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <br><hr>
+  <input type="submit" name="submit">
+</form>
 </fieldset>
-	</div></fieldset>";
-
-}?></th>
-  </tr>
-</table>
-
 <div><?php include 'resources/footer.php';?></div>
 </body>
 </html>
