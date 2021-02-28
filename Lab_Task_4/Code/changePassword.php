@@ -2,33 +2,40 @@
 <html>
 <head>
 	<title>Jisun's Company</title>
+  <style>
+.error {color: #FF0000;}
+</style>
 </head>
 <body>
+  <table style="width:100%; border: 1px solid black;">
+  <tr style="border: 1px solid black;">
+    <th style="border: 1px solid black;">
+      Account<hr>
+      <div style="float: left; text-align: left;">
+      * <a href="dashboard.php">Dashboard</a><br><br>
+      * <a href="profile.php">View Profile</a><br><br>
+      * <a href="changeProfile.php">Edit Profile</a><br><br>
+      * <a href="changeProfilePic.php">Change Profile Picture</a><br><br>
+      * <a href="changePassword.php">Change Password</a><br><br>
+      * <a href="logout.php">Logout</a>
+    </div>
+    </th>
+    <th style="border: 1px solid black;">
 	<?php 
 session_start();
 	echo "<div>";include 'resources/header.php';echo "</div>";
- ?>
-	<table style="width:100%; border: 1px solid black;">
-  <tr style="border: 1px solid black;">
-    <th style="border: 1px solid black;">
-    	Account<hr>
-    	<div style="float: left; text-align: left;">
-    	* <a href="dashboard.php">Dashboard</a><br><br>
-    	* <a href="profile.php">View Profile</a><br><br>
-    	* <a href=".php">Edit Profile</a><br><br>
-    	* <a href="changeProfilePic.php">Change Profile Picture</a><br><br>
-    	* <a href="changePassword.php">Change Password</a><br><br>
-    	* <a href="logout.php">Logout</a>
-    </div>
-    </th>
-    <th style="border: 1px solid black;"><?php
 $cpassErr = $npassErr = $rtnpassErr = "";
 $cpass = $npass = $rtnpass = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["cpass"])) {
     $cpassErr = "Current Password is required";
-  } else {
-    $cpass = test_input($_POST["cpass"]);
+  }
+  else if (!strcmp($_SESSION['password'], $_POST["cpass"])==0) {
+      $cpassErr = "Current Password is incorrect";
+      $cpass ="";
+    } 
+  else {
+    $cpass = $_POST["cpass"];
   }
 
   if (empty($_POST["npass"])) {
@@ -37,25 +44,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $npass = test_input($_POST["npass"]);
     if (strlen($npass)<8) {
       $npassErr = "Password must be 8 charecters";
-      // $npass ="";
+       $npass ="";
     }
     else if (!preg_match("/[@,#,$,%]/",$npass)) {
       $npassErr = "Password must contain at least one of the special characters (@, #, $,%)";
-      // $npass ="";
+       $npass ="";
     }
     else if (strcmp($cpass, $npass)==0) {
       $npassErr = "New Password should not be same as the Current Password";
-      // $npass ="";
+       $npass ="";
     }
   }
 
   if (empty($_POST["rtnpass"])) {
-    $rtnpassErr = "Retype The Current Password";
+    $rtnpassErr = "Retype The New Password";
   } else {
-    $rtnpass = test_input($_POST["rtnpass"]);
+    $rtnpass = $_POST["rtnpass"];
     if (!strcmp($npass, $rtnpass)==0) {
       $rtnpassErr = "New Password & Retyped Password Dosen't Match";
-      // $npass ="";
+      $rtnpass ="";
     }
   }
   
@@ -67,6 +74,30 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
+
+if (!empty($rtnpass)){
+        $servername = "localhost";
+$uname = "root";
+$pword = "";
+$dbname = "jisundb";
+// Create connection
+$conn = new mysqli($servername, $uname, $pword, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "UPDATE labtask4 SET password='".$rtnpass."' WHERE username='".$_SESSION['username']."' AND password='".$_SESSION['password']."'";
+
+if ($conn->query($sql) === TRUE) {
+  echo "<p>Password Changed Successfully</p>";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+}
 ?>
 
 
@@ -74,13 +105,13 @@ function test_input($data) {
   <fieldset>
 <legend><B>CHANGE PASSWORD</B></legend><div style="float: left; text-align: right;">  
   Current Password: <input type="Password" name="cpass">
-  <span class="error"> <?php echo $cpassErr;?></span>
+  <span class="error">*<?php echo $cpassErr;?></span>
   <br><br>
   New Password: <input type="Password" name="npass">
-  <span class="error"> <?php echo $npassErr;?></span>
+  <span class="error">*<?php echo $npassErr;?></span>
   <br><br>
   Retype New Password: <input type="Password" name="rtnpass">
-  <span class="error"> <?php echo $rtnpassErr;?></span>
+  <span class="error">*<?php echo $rtnpassErr;?></span>
   <br><hr>
   <input type="submit" name="submit" value="Submit"></div>
 </fieldset>
