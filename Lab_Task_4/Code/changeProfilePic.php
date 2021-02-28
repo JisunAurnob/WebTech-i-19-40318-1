@@ -15,7 +15,7 @@ session_start();
     	<div style="float: left; text-align: left;">
     	* <a href="dashboard.php">Dashboard</a><br><br>
     	* <a href="profile.php">View Profile</a><br><br>
-    	* <a href=".php">Edit Profile</a><br><br>
+    	* <a href="changeProfile.php">Edit Profile</a><br><br>
     	* <a href="changeProfilePic.php">Change Profile Picture</a><br><br>
     	* <a href="changePassword.php">Change Password</a><br><br>
     	* <a href="logout.php">Logout</a>
@@ -23,10 +23,10 @@ session_start();
     </th>
     <th style="border: 1px solid black;">
 
-<form action="resources/upload.php" method="post" enctype="multipart/form-data">
+<form action="upload.php" method="post" enctype="multipart/form-data">
   <fieldset>
 <legend><B>PROFILE PICTURE</B></legend> <br>
-  <img src="resources/jisun.png" width="180" height="200"><br><br>
+  <?php echo "<img src='".$_SESSION['proPic']."' width='180' height='200'><br><br>"; ?>
   <input type="file" name="fileToUpload" id="fileToUpload">
   <br><hr>
   <input type="submit" name="submit">

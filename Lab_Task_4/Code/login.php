@@ -41,18 +41,41 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
-?>
 
-<?php 
+if(!empty($username)) {
+$servername = "localhost";
+$uname = "root";
+$pword = "";
+$dbname = "jisundb";
+// Create connection
+$conn = new mysqli($servername, $uname, $pword, $dbname);
 
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM labtask4 WHERE username='".$username."' AND password='".$password."'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  $unamedb=$username;
+$pworddb=$password;
+} else {
+  $unamedb="";
+$pworddb="";
+}
+
+$conn->close();
+
+    }
 session_start();
 
-$uname="Jisun";
-$pword="1234";
-
 if (isset($_POST['username'])) {
-	if ($username==$uname && $password==$pword) {
-		$_SESSION['username'] = $uname;
+	if ($username==$unamedb && $password==$pworddb) {
+		$_SESSION['username'] = $unamedb;
+    $_SESSION['password'] = $pworddb;
 		header("location:dashboard.php");
 	}
 	else{

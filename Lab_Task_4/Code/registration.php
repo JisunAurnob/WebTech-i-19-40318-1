@@ -107,29 +107,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  if ($flag==1) {
  	if(isset($_POST["submit"]))  
     {
- 	if(file_exists('resources/data.json'))
- 		{
- 			$current_data = file_get_contents('resources/data.json');  
-            $array_data = json_decode($current_data, true);  
-            $extra = array(  
-                 'name'               =>     $_POST['name'],
-                 'email'          =>     $_POST["email"],
-                 'username'          =>     $_POST["username"],
-                 'password'          =>     $_POST["confirmpass"],  
-                 'gender'          =>     $_POST["gender"],  
-                 'dateOfBirth'     =>     $_POST["birthday"]  
-                );  
-            $array_data[] = $extra;  
-            $final_data = json_encode($array_data);  
-            if(file_put_contents('resources/data.json', $final_data))  
-            {  
-                 $message = "<label>Data Recorded Successfully</p>";  
-            }  
-        }  
-        else  
-        {  
-           $error = 'JSON File not exits';  
-        }  
+$servername = "localhost";
+$uname = "root";
+$pword = "";
+$dbname = "jisundb";
+// Create connection
+$conn = new mysqli($servername, $uname, $pword, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "INSERT INTO labtask4 (name, email, username, password, gender, dateofbirth, profilepicture)
+VALUES ('".$name."', '".$email."', '".$username."','".$confirmpass."','".$gender."','".$dob."','resources/logo.png')";
+
+if ($conn->query($sql) === TRUE) {
+  echo "<p>Registered successfully</p>";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+
     }
  }
 }
@@ -164,9 +164,9 @@ function test_input($data) {
   <fieldset>
   <legend>Gender</legend>
   Gender:
-  <input type="radio" name="gender" value="female">Female
-  <input type="radio" name="gender" value="male">Male
-  <input type="radio" name="gender" value="other">Other
+  <input type="radio" name="gender" value="Female">Female
+  <input type="radio" name="gender" value="Male">Male
+  <input type="radio" name="gender" value="Other">Other
   <span class="error">* <?php echo $genderErr;?></span>
   </fieldset>
   <hr>
