@@ -30,9 +30,9 @@ function showData($tableName, $columnName){
     return $row;
 }
 
-function searchUser($user_name){
+function searchProduct($name){
     $conn = db_conn();
-    $selectQuery = "SELECT * FROM `user_info` WHERE Username LIKE '%$user_name%'";
+    $selectQuery = "SELECT * FROM `product` WHERE Name LIKE '%$name%'";
 
     
     try{
