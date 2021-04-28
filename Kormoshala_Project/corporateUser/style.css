@@ -1,0 +1,251 @@
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+  font-family: monospace;
+  font-size: 28px;
+  color: #004080
+}
+
+header {
+  background-color: #ffffff;
+  padding: 0px;
+  text-align: center;
+  font-size: 19px;
+  color: blue;
+}
+/*navigation bar*/
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #669999;
+}
+
+li {
+  float: right;
+}
+
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color:#009999;
+}
+/*end*/
+
+article {
+  float: left;
+  padding: 20px;
+  text-align: center;
+  width: 97.5%;
+  background-color:#e6e6e6 ;
+  height: 1010px;
+}
+
+
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.button1 {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+/*.button2 {
+  background-color: lightgrey; 
+  color: black; 
+  border: 0px solid #4CAF50;
+}
+
+.button2:hover {
+  background-color: #4CAF50;
+  color: white;
+}*/
+
+.tag{
+  margin-left: 120px; font-family: serif; font-size: 40px; color: #29a329;text-align:left;
+}
+
+.box1{
+  float: right;position: absolute;font-family: serif;font-size: 20px;left:120px; top: 450px;color: black;
+}
+.box2{
+  float: right;position: absolute;font-family: serif;font-size: 20px;left:540px; top: 450px;color: black;
+}
+.box3{
+  float: right;position: absolute;font-family: serif;font-size: 20px;left:980px; top: 450px;color: black;
+}
+
+
+a.button2:link,a.button2:visited {
+  background-color: lightgrey; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+a.button2:hover,  a.button2:active {
+  background-color: #008CBA;
+  color: white;
+}
+
+
+.image{
+	float: right;
+	position: absolute;
+	left:780px;
+	top: 230px;
+	color: blue;
+}
+
+.align{
+	margin-right: 750px;
+	float: left; 
+	text-align: left;
+	color: blue;
+}
+
+
+a.button:link, a.button:visited {
+  text-decoration: none;
+  background-color:#4CAF50;
+  color: white;
+  padding: 15px 120px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  opacity: 0.9;
+}
+
+a.button:hover, a.button:active {
+   opacity: 1.5;
+}
+
+
+/*form style*/
+
+input[type=text],input[type=tel],input[type=password], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+a{
+	text-decoration: none;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 5px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 29%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1.5;
+}
+
+
+/*.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}*/
+
+.col-25 {
+  float: left;
+  width: 13%;
+  margin-top: 6px;
+}
+.col-20 {
+  float: left;
+  width: 20%;
+  margin-top: 6px;
+}
+
+.col-15 {
+  float: left;
+  width: 8%;
+  text-align: center;
+  margin-left:445px;
+  margin-top: 6px;
+  margin-right: 10px;
+}
+
+.col-75 {
+  float: left;
+  width: 65%;
+  margin-top: 6px;
+}
+.col-55 {
+  float: left;
+  width: 18%;
+  margin-left:5px;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75,.col-15,.col-20, input[type=submit],input[type=reset],section {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+/*end*/
+
+
+footer {
+  background-color: #669999;
+  padding: 8px;
+  height: 8%;
+  text-align: center;
+  color: white;
+ 
+}
+
+
+</style>
